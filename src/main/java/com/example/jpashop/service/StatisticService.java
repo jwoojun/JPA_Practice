@@ -1,7 +1,7 @@
 package com.example.jpashop.service;
 
-import com.example.jpashop.domain.Address;
-import com.example.jpashop.domain.Member;
+import com.example.jpashop.domain.vo.Address;
+import com.example.jpashop.domain.entity.Member;
 import com.example.jpashop.repository.StatisticRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

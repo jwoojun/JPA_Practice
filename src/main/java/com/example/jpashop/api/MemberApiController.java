@@ -1,6 +1,6 @@
 package com.example.jpashop.api;
 
-import com.example.jpashop.domain.Member;
+import com.example.jpashop.domain.entity.Member;
 import com.example.jpashop.service.MemberService;
 import lombok.AllArgsConstructor;
 import lombok.Data;

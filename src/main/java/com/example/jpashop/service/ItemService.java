@@ -1,6 +1,6 @@
 package com.example.jpashop.service;
 
-import com.example.jpashop.domain.item.Item;
+import com.example.jpashop.domain.entity.item.Item;
 import com.example.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

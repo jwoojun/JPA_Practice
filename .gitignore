@@ -28,6 +28,9 @@ bin/
 *.ipr
 out/
 /src/main/resources/application.yml
+/src/main/java/com/example/jpashop/domain
+/src/main/java/com/example/jpashop/api**
+/src/main/java/com/example/jpashop/domain**
 !**/src/test/**/out/
 
 ### NetBeans ###

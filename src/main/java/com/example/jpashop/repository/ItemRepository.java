@@ -1,6 +1,6 @@
 package com.example.jpashop.repository;
 
-import com.example.jpashop.domain.item.Item;
+import com.example.jpashop.domain.entity.item.Item;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

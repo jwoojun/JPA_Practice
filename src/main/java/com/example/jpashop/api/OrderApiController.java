@@ -1,13 +1,15 @@
 package com.example.jpashop.api;
 
 import com.example.jpashop.domain.*;
+import com.example.jpashop.domain.entity.Order;
+import com.example.jpashop.domain.entity.OrderItem;
+import com.example.jpashop.domain.vo.Address;
 import com.example.jpashop.repository.OrderRepository;
 import com.example.jpashop.repository.OrderSearch;
 import com.example.jpashop.repository.query.OrderQueryRepository;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.domain.jaxb.SpringDataJaxb;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

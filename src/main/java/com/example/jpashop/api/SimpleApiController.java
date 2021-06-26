@@ -1,6 +1,9 @@
 package com.example.jpashop.api;
 
 import com.example.jpashop.domain.*;
+import com.example.jpashop.domain.dto.OrderQueryDto;
+import com.example.jpashop.domain.entity.Order;
+import com.example.jpashop.domain.vo.Address;
 import com.example.jpashop.repository.OrderRepository;
 import com.example.jpashop.repository.OrderSearch;
 import com.example.jpashop.repository.query.OrderQueryRepository;

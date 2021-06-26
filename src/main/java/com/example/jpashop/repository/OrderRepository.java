@@ -1,10 +1,6 @@
 package com.example.jpashop.repository;
 
-import com.example.jpashop.api.SimpleApiController;
-import com.example.jpashop.domain.Order;
-import com.example.jpashop.domain.OrderItemQueryDto;
-import com.example.jpashop.domain.OrderQueryDto;
-import com.example.jpashop.domain.SimpleOrderQueryDto;
+import com.example.jpashop.domain.entity.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;

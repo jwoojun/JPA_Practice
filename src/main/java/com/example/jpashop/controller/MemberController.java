@@ -1,7 +1,7 @@
 package com.example.jpashop.controller;
 
-import com.example.jpashop.domain.Address;
-import com.example.jpashop.domain.Member;
+import com.example.jpashop.domain.entity.Member;
+import com.example.jpashop.domain.vo.Address;
 import com.example.jpashop.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

@@ -1,10 +1,10 @@
 package com.example.jpashop.service;
 
-import com.example.jpashop.domain.Delivery;
-import com.example.jpashop.domain.Member;
-import com.example.jpashop.domain.Order;
-import com.example.jpashop.domain.OrderItem;
-import com.example.jpashop.domain.item.Item;
+import com.example.jpashop.domain.entity.Delivery;
+import com.example.jpashop.domain.entity.Member;
+import com.example.jpashop.domain.entity.Order;
+import com.example.jpashop.domain.entity.OrderItem;
+import com.example.jpashop.domain.entity.item.Item;
 import com.example.jpashop.repository.ItemRepository;
 import com.example.jpashop.repository.MemberRepository;
 import com.example.jpashop.repository.OrderRepository;

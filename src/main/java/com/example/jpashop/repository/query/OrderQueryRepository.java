@@ -1,15 +1,12 @@
 package com.example.jpashop.repository.query;
 
-import com.example.jpashop.api.OrderApiController;
-import com.example.jpashop.domain.OrderFlatDto;
-import com.example.jpashop.domain.OrderItemQueryDto;
-import com.example.jpashop.domain.OrderQueryDto;
+import com.example.jpashop.domain.dto.OrderItemQueryDto;
+import com.example.jpashop.domain.dto.OrderQueryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import static com.example.jpashop.domain.OrderFlatDto.*;
+
 import javax.persistence.EntityManager;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 

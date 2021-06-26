@@ -1,7 +1,7 @@
 //package com.example.jpashop;
 //
 //import com.example.jpashop.domain.*;
-//import com.example.jpashop.domain.item.Book;
+//import com.example.jpashop.domain.entity.item.Book;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.stereotype.Component;
 //import org.springframework.transaction.annotation.Transactional;
