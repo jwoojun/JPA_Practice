@@ -1,44 +1,30 @@
-HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+/jpashop.iml
+
+
+### Folder ###
+/src/main/java/com/example/jpashop/api/MemberApiController.java
+/src/main/java/com/example/jpashop/api/OrderApiController.java
+/src/main/java/com/example/jpashop/api/SimpleApiController.java
+/src/main/java/com/example/jpashop/member/domain/entity/
+/src/main/java/com/example/jpashop/order/domain/entity/
+/src/main/java/com/example/jpashop/delivery/domain/entity/
+/src/main/java/com/example/jpashop/categories/domain/entity/
+/src/main/java/com/example/jpashop/products/domain/entity/Book.java
+/src/main/java/com/example/jpashop/products/domain/entity/Item.java.java
+/src/main/java/com/example/jpashop/products/domain/entity/Movie.java
+/src/main/java/com/example/jpashop/products/domain/entity/Album.java
+/src/main/resources/images
+
+
+### Setting ###
+/src/main/resources/application.yml
+gradlew
 gradlew.bat
 settings.gradle
-gradlew
+HELP.md
 
 
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### IntelliJ IDEA ###
+.gradle
 .idea
-*.iws
-*.iml
-*.ipr
-out/
-/src/main/resources/application.yml
-/src/main/java/com/example/jpashop/domain
-/src/main/java/com/example/jpashop/api**
-/src/main/java/com/example/jpashop/domain**
-!**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
+out

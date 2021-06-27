@@ -1,12 +1,11 @@
 package com.example.jpashop.api;
 
-import com.example.jpashop.domain.*;
-import com.example.jpashop.domain.entity.Order;
-import com.example.jpashop.domain.entity.OrderItem;
-import com.example.jpashop.domain.vo.Address;
-import com.example.jpashop.repository.OrderRepository;
-import com.example.jpashop.repository.OrderSearch;
-import com.example.jpashop.repository.query.OrderQueryRepository;
+import com.example.jpashop.order.domain.entity.Order;
+import com.example.jpashop.order.domain.entity.OrderItem;
+import com.example.jpashop.member.domain.vo.Address;
+import com.example.jpashop.order.domain.entity.OrderStatus;
+import com.example.jpashop.order.repository.OrderRepository;
+import com.example.jpashop.order.domain.dto.OrderSearch;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -23,7 +22,7 @@ import java.util.stream.Collectors;
 public class OrderApiController {
 
     private final OrderRepository orderRepository;
-    private final OrderQueryRepository queryRepository;
+//    private final OrderQueryRepository queryRepository;
 
     @GetMapping("/api/v1/orders")
     public List<Order> oerdersV1() {

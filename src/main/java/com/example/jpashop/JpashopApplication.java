@@ -1,13 +1,11 @@
 package com.example.jpashop;
 
-import com.example.jpashop.repository.OrderRepository;
+import com.example.jpashop.order.repository.OrderRepository;
 import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.util.Objects;
 
 
 @SpringBootApplication

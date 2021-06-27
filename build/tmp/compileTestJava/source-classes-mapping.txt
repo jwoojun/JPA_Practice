@@ -1,0 +1,6 @@
+com/example/jpashop/JpashopApplicationTests.java
+ com.example.jpashop.JpashopApplicationTests
+com/example/jpashop/service/MemberServiceTest.java
+ com.example.jpashop.service.MemberServiceTest
+com/example/jpashop/domain/entity/item/ItemTest.java
+ com.example.jpashop.domain.entity.item.ItemTest

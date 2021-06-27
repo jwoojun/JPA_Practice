@@ -1,0 +1,68 @@
+com/example/jpashop/order/domain/dto/OrderQueryDto.java
+ com.example.jpashop.order.domain.dto.OrderQueryDto
+com/example/jpashop/order/repository/OrderRepository.java
+ com.example.jpashop.order.repository.OrderRepository
+com/example/jpashop/HomeController.java
+ com.example.jpashop.HomeController
+com/example/jpashop/products/domain/entity/Movie.java
+ com.example.jpashop.products.domain.entity.Movie
+com/example/jpashop/order/domain/dto/OrderItemQueryDto.java
+ com.example.jpashop.order.domain.dto.OrderItemQueryDto
+com/example/jpashop/products/domain/entity/Album.java
+ com.example.jpashop.products.domain.entity.Album
+com/example/jpashop/order/domain/dto/BookForm.java
+ com.example.jpashop.order.domain.dto.BookForm
+com/example/jpashop/order/domain/entity/Order.java
+ com.example.jpashop.order.domain.entity.Order
+com/example/jpashop/products/service/ItemService.java
+ com.example.jpashop.products.service.ItemService
+com/example/jpashop/order/service/OrderService.java
+ com.example.jpashop.order.service.OrderService
+com/example/jpashop/order/domain/dto/SimpleOrderQueryDto.java
+ com.example.jpashop.order.domain.dto.SimpleOrderQueryDto
+com/example/jpashop/member/domain/MemberForm.java
+ com.example.jpashop.member.domain.MemberForm
+com/example/jpashop/api/OrderApiController.java
+ com.example.jpashop.api.OrderApiController
+ com.example.jpashop.api.OrderApiController$OrderDto
+ com.example.jpashop.api.OrderApiController$OrderItemDto
+com/example/jpashop/delivery/domain/entity/Delivery.java
+ com.example.jpashop.delivery.domain.entity.Delivery
+com/example/jpashop/member/domain/vo/Address.java
+ com.example.jpashop.member.domain.vo.Address
+com/example/jpashop/order/domain/dto/OrderSearch.java
+ com.example.jpashop.order.domain.dto.OrderSearch
+com/example/jpashop/categories/domain/Category.java
+ com.example.jpashop.categories.domain.Category
+com/example/jpashop/member/controller/MemberController.java
+ com.example.jpashop.member.controller.MemberController
+com/example/jpashop/JpashopApplication.java
+ com.example.jpashop.JpashopApplication
+com/example/jpashop/member/domain/vo/Age.java
+ com.example.jpashop.member.domain.vo.Age
+com/example/jpashop/order/domain/entity/OrderStatus.java
+ com.example.jpashop.order.domain.entity.OrderStatus
+com/example/jpashop/delivery/domain/entity/DeleveryStatus.java
+ com.example.jpashop.delivery.domain.entity.DeleveryStatus
+com/example/jpashop/products/domain/entity/Book.java
+ com.example.jpashop.products.domain.entity.Book
+com/example/jpashop/products/repository/ItemRepository.java
+ com.example.jpashop.products.repository.ItemRepository
+com/example/jpashop/order/controller/OrderController.java
+ com.example.jpashop.order.controller.OrderController
+com/example/jpashop/member/repository/MemberRepository.java
+ com.example.jpashop.member.repository.MemberRepository
+com/example/jpashop/products/domain/entity/Item.java
+ com.example.jpashop.products.domain.entity.Item
+com/example/jpashop/order/domain/dto/OrderFlatDto.java
+ com.example.jpashop.order.domain.dto.OrderFlatDto
+com/example/jpashop/member/service/MemberService.java
+ com.example.jpashop.member.service.MemberService
+com/example/jpashop/order/domain/entity/OrderItem.java
+ com.example.jpashop.order.domain.entity.OrderItem
+com/example/jpashop/products/controller/ItemController.java
+ com.example.jpashop.products.controller.ItemController
+com/example/jpashop/member/domain/entity/Member.java
+ com.example.jpashop.member.domain.entity.Member
+com/example/jpashop/delivery/domain/entity/NoEnoughStock.java
+ com.example.jpashop.delivery.domain.entity.NoEnoughStock

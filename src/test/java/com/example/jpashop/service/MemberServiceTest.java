@@ -1,22 +1,21 @@
 package com.example.jpashop.service;
 
 import com.example.jpashop.JpashopApplication;
-import com.example.jpashop.domain.entity.Member;
-import com.example.jpashop.repository.MemberRepository;
+import com.example.jpashop.member.domain.entity.Member;
+import com.example.jpashop.member.repository.MemberRepository;
+import com.example.jpashop.member.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-@Commit
-@Transactional // 모두 롤백.
+//@Commit
+@Transactional
 @SpringBootTest
 @ContextConfiguration(classes = JpashopApplication.class)
 class MemberServiceTest {
@@ -30,31 +29,34 @@ class MemberServiceTest {
     @Autowired
     EntityManager em;
 
+
     @Test
     public void save() throws Exception {
-        System.out.println("========");
+        // given
         Member member = new Member();
-        member.setName("Jang");
-        em.persist(member);
-        em.flush();
+        member.setName("Kang");
+
+        // when
         Long saveId = memberService.join(member);
+        em.flush();
+
+        // then
         assertEquals(member, memberRepository.findOne(saveId));
 
     }
 
     @Test
-    void 회원가입_예외발생() throws Exception {
+    void duplicate_member_check() throws Exception {
         Member memberA = new Member();
         memberA.setName("memberA");
-        em.persist(memberA);
+        memberService.join(memberA);
 
-        Member memberAA = new Member();
-        memberAA.setName("memberA");
-        em.persist(memberAA);
-//        new AssertionError("예외 발생");
+        Member duplicateMemberA = new Member();
+        duplicateMemberA.setName("memberA");
+        memberService.join(duplicateMemberA);
     }
 
-    @Test
+
     void float_versus() throws Exception {
 
         // given
