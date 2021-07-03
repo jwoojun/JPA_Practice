@@ -1,6 +1,6 @@
 package com.example.jpashop.member.controller;
 
-import com.example.jpashop.member.domain.MemberForm;
+import com.example.jpashop.member.domain.dto.MemberForm;
 import com.example.jpashop.member.domain.entity.Member;
 import com.example.jpashop.member.domain.vo.Address;
 import com.example.jpashop.member.service.MemberService;
@@ -13,18 +13,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
 
+    // 컨트롤러 주소로 오게되면 해당 파일이 열리면서 렌더링이 된다.
     @GetMapping(value = "/members/new")
     public String createForm(Model model) {
         model.addAttribute("memberForm", new MemberForm());
         return "members/createMemberForm";
     }
+
 
     @PostMapping(value = "/members/new")
     public String create(@Valid MemberForm form, BindingResult result) {
@@ -40,31 +41,10 @@ public class MemberController {
     }
 
 
-    //추가
     @GetMapping(value = "/members")
-    public String list(Model model) {
-        System.out.println("====================================");
-        List<Member> member20s = memberService.findMembers()
-                .stream()
-                .filter(Address::isBusan)
-                .collect(Collectors.toUnmodifiableList());
-
-        int total = member20s.size();
-        long manLivesBusan = member20s.stream()
-                .filter(Member::isMan)
-                .filter(Address::isBusan)
-                .count();
-
-
-        memberService.findMembers()
-                .stream()
-                .filter(Address::isBusan)
-                .forEach(System.out::println);
-        System.out.println("====================================");
-
-
+    public String findMembers(Model model) {
+        System.out.println("=============");
         List<Member> members = memberService.findMembers();
-
         model.addAttribute("members", members);
         return "members/memberList";
     }

@@ -4,8 +4,8 @@ import com.example.jpashop.delivery.domain.entity.Delivery;
 import com.example.jpashop.member.domain.entity.Member;
 import com.example.jpashop.order.domain.entity.Order;
 import com.example.jpashop.order.domain.entity.OrderItem;
-import com.example.jpashop.products.domain.entity.Item;
-import com.example.jpashop.products.repository.ItemRepository;
+import com.example.jpashop.item.domain.entity.Item;
+import com.example.jpashop.item.repository.ItemRepository;
 import com.example.jpashop.member.repository.MemberRepository;
 import com.example.jpashop.order.repository.OrderRepository;
 import com.example.jpashop.order.domain.dto.OrderSearch;
@@ -48,7 +48,7 @@ public class OrderService {
     }
 
     @Transactional
-    public void cancleOrder(Long orderId) {
+    public void cancelOrder(Long orderId) {
         // 주문 엔티티 조회
         Order order = orderRepository.findOne(orderId);
         // 주문 취소
@@ -57,7 +57,6 @@ public class OrderService {
 
     public List<Order> findOrders(OrderSearch search) {
         return orderRepository.findByString(search);
-
     }
 
 //    public List<Order> search(){};
