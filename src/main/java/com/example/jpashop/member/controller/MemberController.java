@@ -17,35 +17,33 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
-    private final MemberService memberService;
+  private final MemberService memberService;
 
-    // 컨트롤러 주소로 오게되면 해당 파일이 열리면서 렌더링이 된다.
-    @GetMapping(value = "/members/new")
-    public String createForm(Model model) {
-        model.addAttribute("memberForm", new MemberForm());
-        return "members/createMemberForm";
+
+  @GetMapping(value = "/members/new")
+  public String createForm(Model model) {
+    model.addAttribute("memberForm", new MemberForm());
+    return "members/createMemberForm";
+  }
+
+  @PostMapping(value = "/members/new")
+  public String create(@Valid MemberForm form, BindingResult result) {
+    if (result.hasErrors()) {
+      return "members/createMemberForm";
     }
+    Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
+    Member member = new Member();
+    member.setName(form.getName());
+    member.setAddress(address);
+    memberService.join(member);
+    return "redirect:/api";
+  }
 
-
-    @PostMapping(value = "/members/new")
-    public String create(@Valid MemberForm form, BindingResult result) {
-        if (result.hasErrors()) {
-            return "members/createMemberForm";
-        }
-        Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
-        Member member = new Member();
-        member.setName(form.getName());
-        member.setAddress(address);
-        memberService.join(member);
-        return "redirect:/api";
-    }
-
-
-    @GetMapping(value = "/members")
-    public String findMembers(Model model) {
-        System.out.println("=============");
-        List<Member> members = memberService.findMembers();
-        model.addAttribute("members", members);
-        return "members/memberList";
-    }
+  @GetMapping(value = "/members")
+  public String findMembers(Model model) {
+    System.out.println("=============");
+    List<Member> members = memberService.findMembers();
+    model.addAttribute("members", members);
+    return "members/memberList";
+  }
 }

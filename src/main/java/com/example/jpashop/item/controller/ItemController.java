@@ -39,6 +39,9 @@ public class ItemController {
     @GetMapping(value = "/items")
     public String list(Model model) {
         List<Item> items = itemService.findItem();
+        items.stream()
+                .filter(x->x.getName().equals("쇼핑몰"))
+                .forEach(System.out::println);
         model.addAttribute("items", items);
         return "items/itemList";
     }
