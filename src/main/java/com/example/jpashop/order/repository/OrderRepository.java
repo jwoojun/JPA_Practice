@@ -1,6 +1,7 @@
 package com.example.jpashop.order.repository;
 
-import com.example.jpashop.order.domain.dto.OrderSearch;
+import com.example.jpashop.api.dto.OrderSearch;
+import com.example.jpashop.api.dto.SimpleOrderQueryDto;
 import com.example.jpashop.order.domain.entity.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -44,10 +45,9 @@ public class OrderRepository {
   }
 
   public List<Order> findByString(OrderSearch search) {
-
-
     return em.createQuery("select o from Order o", Order.class).getResultList();
   }
+
 
   public List<Order> findAllMemberDelivery() {
 
@@ -57,12 +57,19 @@ public class OrderRepository {
   }
 
   public List<Order> findAllWithItem() {
+    /**
+     * return em.createQuery( "select distinct o from Order o " + "join fetch o.member m " + "join
+     * fetch o.delivery d " + "join fetch o.orderItems oi " + "join fetch oi.item i", Order.class)
+     * .getResultList();
+     */
+    List<Order> orders = em.createQuery("select o FROM Order o join o.member", Order.class).getResultList();
+    System.out.println(orders.size());
+
+    // 주문은 회원/배송 정보를 다 본다는 것을 통해
     return em.createQuery(
-            "select distinct o from Order o "
-                + "join fetch o.member m "
-                + "join fetch o.delivery d "
-                + "join fetch o.orderItems oi "
-                + "join fetch oi.item i",
+            "select o FROM Order o " +
+                    "join fetch o.member m " +
+                    "join fetch o.delivery d ",
             Order.class)
         .getResultList();
   }
@@ -91,17 +98,34 @@ public class OrderRepository {
         .setMaxResults(100)
         .getResultList();
   }
+  public List<Order> findAllWithMemberDelivery() {
+    return em.createQuery("select o from Order o " +
+            "join fetch o.member m " +
+            "join fetch o.delivery d", Order.class)
+            .getResultList();
 
-  public List<Order> findAllWithMemberDelivery(int offset, int limit) {
-    return em.createQuery(
-            "select distinct o from Order o "
-                + "join fetch o.member m "
-                + "join fetch o.delivery d ",
-            Order.class)
-        .setFirstResult(offset)
-        .setMaxResults(limit)
-        .getResultList();
   }
+
+
+  public List<SimpleOrderQueryDto> findOrderDtos() {
+    return em.createQuery(
+            "select new com.example.jpashop.api.dto.SimpleOrderQueryDto(o.id, m.name, o.orderDate,  o.status, d.address) "
+                    + "from Order o "
+                    + "join o.member m "
+                    + "join o.delivery d ",
+            SimpleOrderQueryDto.class)
+            .getResultList();
+  }
+//  public List<SimpleOrderQueryDto> findAllWithMemberDelivery(int offset, int limit) {
+//    return em.createQuery(
+//            "select distinct o from Order o "
+//                + "join fetch o.member m "
+//                + "join fetch o.delivery d ",
+//            Order.class)
+//        .setFirstResult(offset)
+//        .setMaxResults(limit)
+//        .getResultList();
+//  }
 
   //    private List<OrderItemQueryDto> findOrderItems() {
   //        return em.createQuery(
