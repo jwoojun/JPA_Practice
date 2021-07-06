@@ -1,5 +1,6 @@
 package com.example.jpashop.order.service;
 
+import com.example.jpashop.api.dto.OrderSearch;
 import com.example.jpashop.delivery.domain.entity.Delivery;
 import com.example.jpashop.member.domain.entity.Member;
 import com.example.jpashop.order.domain.entity.Order;
@@ -8,7 +9,6 @@ import com.example.jpashop.item.domain.entity.Item;
 import com.example.jpashop.item.repository.ItemRepository;
 import com.example.jpashop.member.repository.MemberRepository;
 import com.example.jpashop.order.repository.OrderRepository;
-import com.example.jpashop.order.domain.dto.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

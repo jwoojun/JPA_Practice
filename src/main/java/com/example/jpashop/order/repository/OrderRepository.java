@@ -1,7 +1,7 @@
 package com.example.jpashop.order.repository;
 
 import com.example.jpashop.api.dto.OrderSearch;
-import com.example.jpashop.api.dto.SimpleOrderQueryDto;
+import com.example.jpashop.order.repository.orderqueryrepo.SimpleOrderQueryDto;
 import com.example.jpashop.order.domain.entity.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -98,6 +98,10 @@ public class OrderRepository {
         .setMaxResults(100)
         .getResultList();
   }
+  /**
+   * Order을 건드리지 않고 가지고 왔다.
+   * select절에 들어가는
+   * */
   public List<Order> findAllWithMemberDelivery() {
     return em.createQuery("select o from Order o " +
             "join fetch o.member m " +
@@ -106,7 +110,12 @@ public class OrderRepository {
 
   }
 
-
+  /**
+   * Repository 재사용성이 떨어진다.
+   * API스펙에 맞춰 코드가 Repository에 들어가는 단점이 있다.
+   * Repository는 엔티티를 조회하는 용도지 API스펙이 이렇게
+   * 들어오면 안된다. Repository를 뜯어내야한다. API에 맞춰.
+   * */
   public List<SimpleOrderQueryDto> findOrderDtos() {
     return em.createQuery(
             "select new com.example.jpashop.api.dto.SimpleOrderQueryDto(o.id, m.name, o.orderDate,  o.status, d.address) "
@@ -116,6 +125,9 @@ public class OrderRepository {
             SimpleOrderQueryDto.class)
             .getResultList();
   }
+
+
+
 //  public List<SimpleOrderQueryDto> findAllWithMemberDelivery(int offset, int limit) {
 //    return em.createQuery(
 //            "select distinct o from Order o "

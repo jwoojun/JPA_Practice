@@ -1,9 +1,9 @@
 package com.example.jpashop.order.controller;
 
+import com.example.jpashop.api.dto.OrderSearch;
 import com.example.jpashop.member.domain.entity.Member;
 import com.example.jpashop.order.domain.entity.Order;
 import com.example.jpashop.item.domain.entity.Item;
-import com.example.jpashop.order.domain.dto.OrderSearch;
 import com.example.jpashop.item.service.ItemService;
 import com.example.jpashop.member.service.MemberService;
 import com.example.jpashop.order.service.OrderService;
