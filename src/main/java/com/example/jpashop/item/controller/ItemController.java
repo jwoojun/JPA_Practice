@@ -31,7 +31,6 @@ public class ItemController {
         book.setStockQuantity(bookForm.getStockQuantity());
         book.setPrice(bookForm.getPrice());
         itemService.saveItem(book);
-        System.out.println(02);
         return "redirect:/api";
     }
 

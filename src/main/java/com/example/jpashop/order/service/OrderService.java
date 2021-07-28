@@ -20,12 +20,17 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class OrderService {
+
+
     private final OrderRepository orderRepository;
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
 
+
     @Transactional
     public Long order(Long memberId, Long itemId, int count) {
+
+
         // 회원, 아이템 정보 조회
         Member member = memberRepository.findOne(memberId);
         Item item = itemRepository.findOne(itemId);
@@ -59,7 +64,6 @@ public class OrderService {
         return orderRepository.findByString(search);
     }
 
-//    public List<Order> search(){};
 
 
 }

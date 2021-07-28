@@ -48,7 +48,6 @@ public class OrderRepository {
     return em.createQuery("select o from Order o", Order.class).getResultList();
   }
 
-
   public List<Order> findAllMemberDelivery() {
 
     return em.createQuery(
@@ -62,14 +61,13 @@ public class OrderRepository {
      * fetch o.delivery d " + "join fetch o.orderItems oi " + "join fetch oi.item i", Order.class)
      * .getResultList();
      */
-    List<Order> orders = em.createQuery("select o FROM Order o join o.member", Order.class).getResultList();
+    List<Order> orders =
+        em.createQuery("select o FROM Order o join o.member", Order.class).getResultList();
     System.out.println(orders.size());
 
     // 주문은 회원/배송 정보를 다 본다는 것을 통해
     return em.createQuery(
-            "select o FROM Order o " +
-                    "join fetch o.member m " +
-                    "join fetch o.delivery d ",
+            "select o FROM Order o " + "join fetch o.member m " + "join fetch o.delivery d ",
             Order.class)
         .getResultList();
   }
@@ -98,46 +96,38 @@ public class OrderRepository {
         .setMaxResults(100)
         .getResultList();
   }
-  /**
-   * Order을 건드리지 않고 가지고 왔다.
-   * select절에 들어가는
-   * */
+  /** Order을 건드리지 않고 가지고 왔다. select절에 들어가는 */
   public List<Order> findAllWithMemberDelivery() {
-    return em.createQuery("select o from Order o " +
-            "join fetch o.member m " +
-            "join fetch o.delivery d", Order.class)
-            .getResultList();
-
+    return em.createQuery(
+            "select o from Order o " + "join fetch o.member m " + "join fetch o.delivery d",
+            Order.class)
+        .getResultList();
   }
 
   /**
-   * Repository 재사용성이 떨어진다.
-   * API스펙에 맞춰 코드가 Repository에 들어가는 단점이 있다.
-   * Repository는 엔티티를 조회하는 용도지 API스펙이 이렇게
-   * 들어오면 안된다. Repository를 뜯어내야한다. API에 맞춰.
-   * */
+   * Repository 재사용성이 떨어진다. API스펙에 맞춰 코드가 Repository에 들어가는 단점이 있다. Repository는 엔티티를 조회하는 용도지 API스펙이
+   * 이렇게 들어오면 안된다. Repository를 뜯어내야한다. API에 맞춰.
+   */
   public List<SimpleOrderQueryDto> findOrderDtos() {
     return em.createQuery(
             "select new com.example.jpashop.api.dto.SimpleOrderQueryDto(o.id, m.name, o.orderDate,  o.status, d.address) "
-                    + "from Order o "
-                    + "join o.member m "
-                    + "join o.delivery d ",
+                + "from Order o "
+                + "join o.member m "
+                + "join o.delivery d ",
             SimpleOrderQueryDto.class)
-            .getResultList();
+        .getResultList();
   }
 
-
-
-//  public List<SimpleOrderQueryDto> findAllWithMemberDelivery(int offset, int limit) {
-//    return em.createQuery(
-//            "select distinct o from Order o "
-//                + "join fetch o.member m "
-//                + "join fetch o.delivery d ",
-//            Order.class)
-//        .setFirstResult(offset)
-//        .setMaxResults(limit)
-//        .getResultList();
-//  }
+  //  public List<SimpleOrderQueryDto> findAllWithMemberDelivery(int offset, int limit) {
+  //    return em.createQuery(
+  //            "select distinct o from Order o "
+  //                + "join fetch o.member m "
+  //                + "join fetch o.delivery d ",
+  //            Order.class)
+  //        .setFirstResult(offset)
+  //        .setMaxResults(limit)
+  //        .getResultList();
+  //  }
 
   //    private List<OrderItemQueryDto> findOrderItems() {
   //        return em.createQuery(

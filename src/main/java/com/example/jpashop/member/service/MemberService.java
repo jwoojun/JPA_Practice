@@ -3,6 +3,7 @@ package com.example.jpashop.member.service;
 import com.example.jpashop.member.domain.entity.Member;
 import com.example.jpashop.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -53,7 +55,8 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    @Transactional
+    @Modifying
+    @Transactional(readOnly = true)
     public void update(Long id, String name) {
         Member member = memberRepository.findOne(id);
         member.setName(name);
